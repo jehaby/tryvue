@@ -1,14 +1,47 @@
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Try Vue</title>
   </head>
   <body>
 
     <div id="app">
-      <delivery :data="DeliveryData"></delivery>
-      {{ message }}
+      <h3> Hello Vue!</h3>
+      <delivery v-bind:data="deliver_to.test"></delivery>
+
+
+      <p>--------------------------------------</p>
+      <div>{{ message }}</div>
+
+      <input v-model="message">
+      <div>Count: {{ i }} </div>
+      <button v-show="message" v-on:click="count && handle">Ok</button>
+
+
+
+
+      <pre>
+        {{ $data | json }}
+      </pre>
+
+      <div>
+        <counter></counter>
+      </div>
+
+      <template id="counter-template">
+        <div>
+          <p>Counter: {{ i }}</p>
+          <button v-on:click="count">++</button>
+        </div>
+      </template>
+
     </div>
-    
+
+
+
+
+
+
     <script src='js/vue.js'></script>
     <script src=js/app.js></script>
   </body>
