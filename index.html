@@ -1,48 +1,60 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Try Vue</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <title>Try Vue</title>
+</head>
+<body>
 
-    <div id="app">
-      <h3> Hello Vue!</h3>
-      <delivery v-bind:data="deliver_to.test"></delivery>
+<div id="app">
 
-
-      <p>--------------------------------------</p>
-      <div>{{ message }}</div>
-
-      <input v-model="message">
-      <div>Count: {{ i }} </div>
-      <button v-show="message" v-on:click="count && handle">Ok</button>
+  <div>
+    <counter text="hohoho"></counter>
+  </div>
 
 
+  <div>
+    <counter text="fofofofof"></counter>
+  </div>
 
-
-      <pre>
-        {{ $data | json }}
-      </pre>
-
-      <div>
-        <counter></counter>
-      </div>
-
-      <template id="counter-template">
-        <div>
-          <p>Counter: {{ i }}</p>
-          <button v-on:click="count">++</button>
-        </div>
-      </template>
-
-    </div>
+</div>
 
 
 
 
 
+<template id="counter-template">
+  <div>
+    <h3>{{ text }}</h3>
+    <p>Counter: {{ i }}</p>
+    <button v-on:click="count">++</button>
+  </div>
+</template>
 
-    <script src='js/vue.js'></script>
-    <script src=js/app.js></script>
-  </body>
+
+
+<template id="subscription-template">
+  <div>
+
+    <h3>Subscription</h3>
+    <subscription title="Platinum" weight="3" chosen="0"></subscription>
+    <subscription title="Gold" weight="2" chosen="0"></subscription>
+    <subscription title="Silver" weight="1" chosen="0"></subscription>
+    <subscription title="Free" weight="0" chosen="1"></subscription>
+
+  </div>
+</template>
+
+
+<template id="subscription-element">
+  <div>
+    <span>{{ title }}</span>
+    <span v-if="chosen == weight"> Chosen </span>
+    <button v-else>{{ chosen > weight ? 'Downgrade' : 'Upgrade' }}</button>
+  </div>
+</template>
+
+
+<script src='js/vue.js'></script>
+<script src=js/app.js></script>
+</body>
 </html>
