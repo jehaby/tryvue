@@ -15,25 +15,42 @@ Vue.component('counter', {
 
 
 
-Vue.component('subscription', {
-    template: '#subscription-template',
+Vue.component('subscription-container', {
+    template: '#subscription-container',
     data: function() {
-        currentPlan: 0
-
+        return {
+            subscriptions: [
+                {
+                    title: 'Platinum',
+                    weight: 3
+                },
+                {
+                    title: 'Gold',
+                    weight: 2
+                },
+                {
+                    title: 'Silver',
+                    weight: 1
+                },
+                {
+                    title: 'Free',
+                    weight: 0
+                }
+            ],
+            chosen: 0
+        }
     },
-    methods: {
-
-    }
 });
 
 
-Vue.component('subscription-element', {
-    template: '#subscription-element',
+Vue.component('subscription', {
+    template: '#subscription',
     props: ['chosen', 'weight', 'title'],
-    data: function() {
-
-    },
-
+    methods: {
+        choose: function (event) {
+            this.chosen = this.weight
+        }
+    }
 });
 
 

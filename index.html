@@ -7,49 +7,35 @@
 
 <div id="app">
 
-  <div>
-    <counter text="hohoho"></counter>
-  </div>
-
-
-  <div>
-    <counter text="fofofofof"></counter>
-  </div>
+  <subscription-container></subscription-container>
 
 </div>
 
 
 
-
-
-<template id="counter-template">
-  <div>
-    <h3>{{ text }}</h3>
-    <p>Counter: {{ i }}</p>
-    <button v-on:click="count">++</button>
-  </div>
-</template>
-
-
-
-<template id="subscription-template">
+<template id="subscription-container">
   <div>
 
     <h3>Subscription</h3>
-    <subscription title="Platinum" weight="3" chosen="0"></subscription>
-    <subscription title="Gold" weight="2" chosen="0"></subscription>
-    <subscription title="Silver" weight="1" chosen="0"></subscription>
-    <subscription title="Free" weight="0" chosen="1"></subscription>
+
+    <subscription v-for="subscription in subscriptions"
+                  :title="subscription.title"
+                  :weight="subscription.weight"
+                  :chosen.sync="chosen"
+
+    >
+    </subscription>
+
 
   </div>
 </template>
 
 
-<template id="subscription-element">
+<template id="subscription">
   <div>
     <span>{{ title }}</span>
     <span v-if="chosen == weight"> Chosen </span>
-    <button v-else>{{ chosen > weight ? 'Downgrade' : 'Upgrade' }}</button>
+    <button v-else v-on:click="choose">{{ chosen > weight ? 'Downgrade' : 'Upgrade' }}</button>
   </div>
 </template>
 
