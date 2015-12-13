@@ -6,7 +6,7 @@ module.exports =  {
         phone: '89150554950'
     },
     delivery: {
-
+        region: "Москва"
     },
     products: [
         {

@@ -2,6 +2,8 @@
     <div>
         <form action="">
 
+            <div>Регион: {{ delivery.region }}</div>
+
             <select name="" id="">
                 <option value="1">Клиенту</option>
                 <option value="2">В офис</option>
@@ -12,7 +14,7 @@
             <submit>Пересчитать</submit>
         </form>
         
-        <button v-on:click="calcDeliverySum">Ok</button>
+        <button v-on:click="calcDeliverySum(58)">Ok</button>
     </div>
     
     
@@ -22,7 +24,7 @@
 <script>
     
     export default {
-        props: ['data'],
+        props: ['delivery'],
         
         data: function() {
             return {
@@ -31,13 +33,13 @@
         },
 
         methods: {
-            calcDeliverySum: function() {
-                this.deliverySum = 200;
+            calcDeliverySum: function(newSum) {
+                this.deliverySum = newSum ? newSum : 200;
             }
         },
 
         created: function() {
-            this.calcDeliverySum();
+            this.calcDeliverySum(500);
         }
 
 

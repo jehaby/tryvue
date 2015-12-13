@@ -1,7 +1,7 @@
 <template>
     <h1 class="red">{{msg}}</h1>
     <customer></customer>
-    <delivery :data="Data.delivery"></delivery>
+    <delivery :delivery="orderData.delivery"></delivery>
     <products></products>
 </template>
 
@@ -12,12 +12,13 @@
     import Delivery from './components/delivery.vue';
     import Products from './components/products.vue'
 
+    var orderData = require('./data.js');
 
     export default {
         data () {
             return {
-                msg: 'Hello world!',
-                data: Data
+                msg: 'WTIS 2.0',
+                orderData: orderData
             }
         },
         components: {
