@@ -1,3 +1,5 @@
+Vue.config.debug = true;
+
 Vue.component('subscription-container', {
     template: '#subscription-container',
     data: function() {
@@ -6,6 +8,11 @@ Vue.component('subscription-container', {
             chosen: 0
         }
     },
+    computed: {
+        currentPlan: function() {
+            return this.subscriptions[this.chosen];
+        }
+    }
 });
 
 
@@ -24,4 +31,4 @@ new Vue({
     el: '#app',
 });
 
-Vue.config.debug = true;
+
