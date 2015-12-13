@@ -10,6 +10,10 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue'
+            },
+            {
+                test: /\data.js$/,
+                loader: "babel-loader"
             }
         ]
     }
