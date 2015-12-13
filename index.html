@@ -18,11 +18,11 @@
 
     <h3>Subscription</h3>
 
-    <subscription v-for="subscription in subscriptions"
-                  :title="subscription.title"
-                  :weight="subscription.weight"
+    <!-- data binding -->
+    <subscription v-for="(i, subscriptionTitle) in subscriptions"
+                  :title="subscriptionTitle"
+                  :weight="i"
                   :chosen.sync="chosen"
-
     >
     </subscription>
 

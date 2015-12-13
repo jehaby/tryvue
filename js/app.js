@@ -1,42 +1,8 @@
-Vue.component('counter', {
-    template: "#counter-template",
-    data: function () {
-        return {
-            i: 0
-        }
-    },
-    props: ['text'],
-    methods: {
-        count: function() {
-            this.i += 1;
-        }
-    }
-});
-
-
-
 Vue.component('subscription-container', {
     template: '#subscription-container',
     data: function() {
         return {
-            subscriptions: [
-                {
-                    title: 'Platinum',
-                    weight: 3
-                },
-                {
-                    title: 'Gold',
-                    weight: 2
-                },
-                {
-                    title: 'Silver',
-                    weight: 1
-                },
-                {
-                    title: 'Free',
-                    weight: 0
-                }
-            ],
+            subscriptions: ['Free', 'Silver', 'Gold', 'Platinum'],
             chosen: 0
         }
     },
