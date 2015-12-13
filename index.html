@@ -5,43 +5,10 @@
 </head>
 <body>
 
-<div id="app">
+<app></app>
 
-  <subscription-container></subscription-container>
-
-</div>
-
-
-
-<template id="subscription-container">
-  <div>
-
-    <h3>Subscription</h3>
-    <div>Current plan: {{ currentPlan }}</div>
-
-    <!-- data binding -->
-    <subscription v-for="(i, subscriptionTitle) in subscriptions"
-                  :title="subscriptionTitle"
-                  :weight="i"
-                  :chosen.sync="chosen"
-    >
-    </subscription>
-
-
-  </div>
-</template>
-
-
-<template id="subscription">
-  <div>
-    <span>{{ title }}</span>
-    <span v-if="chosen == weight"> Chosen </span>
-    <button v-else v-on:click="choose">{{ chosen > weight ? 'Downgrade' : 'Upgrade' }}</button>
-  </div>
-</template>
-
-
-<script src='js/vue.js'></script>
-<script src=js/app.js></script>
+<script src="build/js/bundle.js"></script>
+<!--<script src='js/vue.js'></script>-->
+<!--<script src=js/app.js></script>-->
 </body>
 </html>
